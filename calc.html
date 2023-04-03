@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title></title> 
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+	<link rel="stylesheet" href="estilos.css">
+	
+
+</head>  
+<body>
+    <form class="formulario" onsubmit="return false;">
+    
+    <h1>Bienvenido</h1>
+     <div class="contenedor">
+     
+     
+         
+         <div class="input-contenedor">
+         <i class=""></i>
+         <input type="text" id="a" name="a" placeholder="Valor de : A">
+         
+         </div>
+
+
+  <div class="input-contenedor">
+         <i class=""></i>
+         <input type="text" id="b" name="b" placeholder="Valor de : B">
+         
+        
+         </div>
+         
+        
+
+
+         <input type="submit" onclick="suma()" value="+" class="button">
+         <input type="submit" onclick="resta()" value="-" class="button">
+<input type="submit" onclick="multiplicacion()" value="*" class="button">
+<input type="submit" onclick="division()" value="/" class="button">
+<input type="submit" onclick="potencia()" value="^" class="button">
+<input type="submit" onclick="raiz()" value="sqrt" class="button">
+
+<button><a href="http://127.0.0.1:5000/verm" class="loginhere-link">historial</a></button>
+
+
+
+         
+        
+
+
+
+
+
+
+
+
+     </div>
+    </form>
+
+
+
+    <script>
+        //Agregando validaciones de  cors para que no suframos
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Accept', 'application/json');
+        headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');      
+        headers.append('Access-Control-Allow-Credentials', 'true');
+        headers.append('GET', 'POST', 'OPTIONS');
+  
+
+
+
+        //SUMA
+        function suma(){
+          let a=document.getElementById("a").value;
+          let b=document.getElementById("b").value;
+                  
+        fetch('http://localhost:5000/suma', {
+  				method: 'POST',
+  				headers: headers,
+  				body: `{
+    				"a":"${a}",
+                    "b":"${b}"
+                    }`,
+				})
+
+           
+			.then(response => response.json()) //me trae un formato json
+			.then(data => {
+        // ya puedo trabajar con la ifno     
+            alert("Tu suma es: "+data.data)
+    					
+			})
+
+			.catch((error) => {
+  				console.error('Error:', error);
+			});
+		}
+        //SumaT
+
+
+
+
+        
+        //R
+        function resta(){
+          let a=document.getElementById("a").value;
+          let b=document.getElementById("b").value;
+                  
+        fetch('http://localhost:5000/resta', {
+  				method: 'POST',
+  				headers: headers,
+  				body: `{
+    				"a":"${a}",
+                    "b":"${b}"
+                    }`,
+				})
+
+           
+			.then(response => response.json()) //me trae un formato json
+			.then(data => {
+        // ya puedo trabajar con la ifno     
+            alert("Tu resta es: "+data.data)
+    					
+			})
+
+			.catch((error) => {
+  				console.error('Error:', error);
+			});
+		}
+        //R
+
+
+
+        
+        //M
+        function multiplicacion(){
+          let a=document.getElementById("a").value;
+          let b=document.getElementById("b").value;
+                  
+        fetch('http://localhost:5000/multiplicacion', {
+  				method: 'POST',
+  				headers: headers,
+  				body: `{
+    				"a":"${a}",
+                    "b":"${b}"
+                    }`,
+				})
+
+           
+			.then(response => response.json()) //me trae un formato json
+			.then(data => {
+        // ya puedo trabajar con la ifno     
+            alert("Tu multiplicacion es: "+data.data)
+    					
+			})
+
+			.catch((error) => {
+  				console.error('Error:', error);
+			});
+		}
+        //M
+
+
+        //D
+        function division(){
+          let a=document.getElementById("a").value;
+          let b=document.getElementById("b").value;
+                  
+        fetch('http://localhost:5000/division', {
+  				method: 'POST',
+  				headers: headers,
+  				body: `{
+    				"a":"${a}",
+                    "b":"${b}"
+                    }`,
+				})
+
+           
+			.then(response => response.json()) //me trae un formato json
+			.then(data => {
+        // ya puedo trabajar con la ifno     
+            alert("Tu divión es: "+data.data)
+    					
+			})
+
+			.catch((error) => {
+  				console.error('Error:', error);
+			});
+		}
+        //D
+
+
+         //p
+         function potencia(){
+          let a=document.getElementById("a").value;
+          let b=document.getElementById("b").value;
+                  
+        fetch('http://localhost:5000/potencia', {
+  				method: 'POST',
+  				headers: headers,
+  				body: `{
+    				"a":"${a}",
+                    "b":"${b}"
+                    }`,
+				})
+
+           
+			.then(response => response.json()) //me trae un formato json
+			.then(data => {
+        // ya puedo trabajar con la ifno     
+            alert("Tu potencia es: "+data.data)
+    					
+			})
+
+			.catch((error) => {
+  				console.error('Error:', error);
+			});
+		}
+        //p
+
+
+
+        //Ra
+        function raiz(){
+          let a=document.getElementById("a").value;
+          let b=document.getElementById("b").value;
+                  
+        fetch('http://localhost:5000/raiz', {
+  				method: 'POST',
+  				headers: headers,
+  				body: `{
+    				"a":"${a}",
+                    "b":"${b}"
+                    }`,
+				})
+
+           
+			.then(response => response.json()) //me trae un formato json
+			.then(data => {
+        // ya puedo trabajar con la ifno     
+            alert("Tu raiz es: "+data.data)
+    					
+			})
+
+			.catch((error) => {
+  				console.error('Error:', error);
+			});
+		}
+        //Ra
+
+
+
+
+
+
+        
+
+
+
+
+
+        
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
